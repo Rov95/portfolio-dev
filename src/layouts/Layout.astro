@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +6,27 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Portfolio</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		color-scheme: light dark;
+		font-family: 'Onest Variable', sans-serif;
+		font-size: 16px;
+	},
+	html {
+		background: #050505;
+	},
 	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 auto;
+		height: 100vh;
 	}
 </style>

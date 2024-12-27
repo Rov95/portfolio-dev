@@ -2,17 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Badge from '../components/Badge.astro';	
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import LinkedinIcon from '../components/icons/LinkedIn.astro';
+import GitHubIcon from '../components/icons/GitHub.astro';
+import SocialPill from '../components/SocialPill.astro';
+import EmailIcon from '../components/icons/Email.astro';
 ---
 
 <Layout> 
 	<Header />
 	<main>
-	<section class="w-full lg:w-[740px] mx-auto py-44">
-		<h1 class="text-white text-5xl font-bold flex justify-center flex-row gap-x-4 pb-4">
-			Hey, I am Andres Menco 
+	<section class="w-full mx-auto lg:w-[740px] py-44">
+		<img 
+		class="w-12 h-12 rounded-full mb-4"
+		src="/selfie.png" 
+		alt="my-photo" 
+		/>
+		<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
+			Hey, I am Andres 
 			<div class="flex justify-center items-center">
 				<a 
 				href="https://www.linkedin.com/in/andres-menco-5947922bb/" 
@@ -24,12 +30,30 @@ import Badge from '../components/Badge.astro';
 				</a>
 			</div>
 		</h1>
-		<h2>
-			Software Developer and Civil Engineer with a strong 
-			foundation in <strong>React</strong> for frontend development and SQL 
+		<h2 class="text-xl opacity-80 text-white">
+			<span class="text-yellow-200/90">
+				Software Developer and Civil Engineer
+			</span> 
+			<span class="text-red-200/90">
+				from in Colombia
+			</span>
+			, specialiced in <strong>React</strong> for frontend development and <strong>SQL</strong> 
 			databases for backend solutions. 
 		</h2>
-		<ul></ul>
+		<nav class="flex flex-row gap-x-2">
+			<SocialPill href="https://www.linkedin.com/in/andres-menco-5947922bb/">
+				<LinkedinIcon class="size-6"/>
+				LinkedIn
+			</SocialPill>
+			<SocialPill href="https://github.com/Rov95">
+				<GitHubIcon class="size-6"/>
+				GitHub
+			</SocialPill>
+			<SocialPill href="mailto:andres.rov.m.s@gmail.com" >
+				<EmailIcon class="size-6"/>
+				andres.rov.m.s@gmail.com
+			</SocialPill>
+		</nav>
 	</section>
 	</main>
 </Layout>

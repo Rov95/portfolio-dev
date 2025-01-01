@@ -1,23 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import Badge from '../components/Badge.astro';	
 import LinkedinIcon from '../components/icons/LinkedIn.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import SocialPill from '../components/SocialPill.astro';
 import EmailIcon from '../components/icons/Email.astro';
+import BriefcaseIcon from '../components/icons/Briefcase.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Experience from '../components/Experience.astro';
+import CodeIcon from '../components/icons/Code.astro';
+import Projects from '../components/Projects.astro';
 ---
 
-<Layout> 
-	<Header />
-	<main>
-	<section class="w-full mx-auto lg:w-[740px] py-44">
+<Layout 
+	title="Andres Portfolio - Web developer" 
+	description="Andres Menco's personal portfolio"
+	> 
+	<main class="px-4">
+	<SectionContainer class="py-44 pb-32">
 		<img 
 		class="w-12 h-12 rounded-full mb-4"
 		src="/selfie.png" 
 		alt="my-photo" 
 		/>
-		<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
+		<h1 class="text-white text-3xl md:text-5xl font-bold flex flex-row gap-x-4 pb-4">
 			Hey, I am Andres 
 			<div class="flex justify-center items-center">
 				<a 
@@ -30,30 +36,45 @@ import EmailIcon from '../components/icons/Email.astro';
 				</a>
 			</div>
 		</h1>
-		<h2 class="text-xl opacity-80 text-white">
+		<h2 class="text-xl md:text-2xl text-wrap opacity-80 text-white max-w-[700px]">
 			<span class="text-yellow-200/90">
 				Software Developer and Civil Engineer
 			</span> 
 			<span class="text-red-200/90">
-				from in Colombia
+				from Colombia
 			</span>
 			, specialiced in <strong>React</strong> for frontend development and <strong>SQL</strong> 
 			databases for backend solutions. 
 		</h2>
-		<nav class="flex flex-row gap-x-2">
+		<nav class="flex flex-row gap-4 mt-8 flex-wrap">
 			<SocialPill href="https://www.linkedin.com/in/andres-menco-5947922bb/">
-				<LinkedinIcon class="size-6"/>
+				<LinkedinIcon class="size-4 md:size-6"/>
 				LinkedIn
 			</SocialPill>
 			<SocialPill href="https://github.com/Rov95">
-				<GitHubIcon class="size-6"/>
+				<GitHubIcon class="size-4 md:size-6"/>
 				GitHub
 			</SocialPill>
 			<SocialPill href="mailto:andres.rov.m.s@gmail.com" >
-				<EmailIcon class="size-6"/>
+				<EmailIcon class="size-4 md:size-6"/>
 				andres.rov.m.s@gmail.com
 			</SocialPill>
 		</nav>
-	</section>
+	</SectionContainer>
+	<SectionContainer id="experience">
+		<h2 class="text-2xl font-semibold mb-6 flex gap-x-2">
+			<BriefcaseIcon class="size-7" />
+			Experience
+		</h2>
+		<Experience />
+	</SectionContainer>
+
+	<SectionContainer id="experience">
+		<h2 class="text-2xl font-semibold mb-6 flex gap-x-2">
+			<CodeIcon class="size-7" />
+			Projects
+		</h2>
+		<Projects />
+	</SectionContainer>
 	</main>
 </Layout>

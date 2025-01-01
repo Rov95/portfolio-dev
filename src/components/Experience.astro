@@ -1,0 +1,28 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+    {
+        date: "2024",
+        title: "Software Developer",
+        description: "Engineered a robust application using React, Node.js, and SQL to support real-time multiplayer interactions, enhancing user engagement. ",
+        link: "https://github.com/Rov95/Codemon"
+    }, 
+    {
+        date: "2024",
+        title: "Software Developer",
+        description: "Transitioned a complex 15,000-line JavaScript codebase to TypeScript, significantly reducing runtime errors and improving maintainability by 25%. ",
+        link: "https://github.com/Rov95/petals-of-time"
+    },
+]
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-4">   
+    {EXPERIENCE.map(experience =>(
+        <li class="mb-10 ms-4">
+            <ExperienceItem {...experience} />
+        </li>
+    ))}
+</ol>
+
+

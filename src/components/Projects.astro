@@ -1,0 +1,33 @@
+---
+const PROJECTS = [
+    {
+        title: 'Splidot',
+        description: 'Designed a payment manager application that streamlined expense splitting for groups of 10+ people; increased user satisfaction scores by 40% through enhanced user interface and simplified transaction processes. ',
+        image: '/projects/SplidotComplete.webp',
+        github: '#',
+        tags: ['React', 'CSS', 'Javascript', 'express', 'Node.js'],
+    }
+]
+
+---
+
+{
+    PROJECTS.map(({ title, description, tags, image }) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-4 flex-row">
+                {tags.map(tag => (
+                    <li>{tag}</li>
+                ))}
+            </ul>
+            <img 
+            class="rounded shadow-2xl"
+                src={image} 
+                alt={title} 
+            />
+        </article>
+    ))
+        
+}
+

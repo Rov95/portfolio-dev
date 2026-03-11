@@ -1,0 +1,371 @@
+---
+const skills = [
+  'TypeScript', 'React', 'Node.js', 'Python',
+  'PostgreSQL', 'React Native', 'AWS', 'Flask',
+];
+---
+
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-text">
+      <p class="hero-greeting">
+        <span class="greeting-line"></span>
+        Available for work
+      </p>
+
+      <h1 class="hero-name">
+        Andres<br />
+        <span class="name-highlight">Menco</span>
+      </h1>
+
+      <p class="hero-role">Software Developer</p>
+
+      <p class="hero-bio">
+        Full-stack engineer with a background in Civil Engineering.
+        I build elegant, performant web and mobile applications — from
+        React interfaces to Node.js APIs and Python data pipelines.
+      </p>
+
+      <div class="hero-skills">
+        {skills.map(skill => (
+          <span class="skill-tag">{skill}</span>
+        ))}
+      </div>
+
+      <div class="hero-cta">
+        <a href="#experience" class="btn btn-primary">View my work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-card">
+        <div class="card-header">
+          <div class="card-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="card-filename">profile.ts</span>
+        </div>
+        <pre class="card-code"><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = &#123;
+  <span class="code-key">name</span>: <span class="code-str">"Andres Menco"</span>,
+  <span class="code-key">location</span>: <span class="code-str">"Bogotá, Colombia"</span>,
+  <span class="code-key">role</span>: <span class="code-str">"Software Developer"</span>,
+  <span class="code-key">stack</span>: [
+    <span class="code-str">"React"</span>, <span class="code-str">"Node.js"</span>,
+    <span class="code-str">"TypeScript"</span>, <span class="code-str">"Python"</span>,
+  ],
+  <span class="code-key">available</span>: <span class="code-bool">true</span>,
+&#125;;</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(192, 57, 43, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+  }
+
+  .hero-greeting {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-red-bright);
+    margin-bottom: 1.5rem;
+  }
+
+  .greeting-line {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent-red-bright);
+  }
+
+  .hero-name {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .name-highlight {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--text-primary);
+  }
+
+  .hero-role {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-bio {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 420px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .skill-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--border-accent);
+    color: var(--text-secondary);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.75rem;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--accent-red);
+    color: #fff;
+    border: 1px solid var(--accent-red);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-red-bright);
+    border-color: var(--accent-red-bright);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.2);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+  }
+
+  /* Code card */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .visual-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.03);
+    position: relative;
+  }
+
+  .visual-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-secondary);
+  }
+
+  .card-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .card-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  .card-dots span:nth-child(1) { background: #ff5f57; }
+  .card-dots span:nth-child(2) { background: #febc2e; }
+  .card-dots span:nth-child(3) { background: #28c840; }
+
+  .card-filename {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    font-family: 'Courier New', monospace;
+  }
+
+  .card-code {
+    padding: 1.5rem 1.5rem 1.75rem;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 0.8rem;
+    line-height: 1.8;
+    overflow: auto;
+  }
+
+  .code-keyword { color: #c792ea; }
+  .code-var     { color: #82aaff; }
+  .code-key     { color: #f07178; }
+  .code-str     { color: #c3e88d; }
+  .code-bool    { color: #ff9cac; }
+
+  /* Scroll indicator */
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 1;
+  }
+
+  .hero-scroll span {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--text-muted), transparent);
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  @media (max-width: 900px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .hero-name { font-size: clamp(3rem, 12vw, 5rem); }
+
+    .hero-bio { max-width: 100%; }
+
+    .hero-skills { justify-content: center; }
+
+    .hero-cta { justify-content: center; }
+
+    .hero-greeting { justify-content: center; }
+
+    .hero-visual { order: -1; }
+
+    .visual-card { max-width: 340px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-scroll { display: none; }
+  }
+</style>

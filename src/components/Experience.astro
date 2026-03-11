@@ -1,0 +1,348 @@
+---
+interface ExperienceItem {
+  type: 'work' | 'project';
+  title: string;
+  company?: string;
+  period: string;
+  description: string;
+  tech: string[];
+  link?: string;
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    type: 'work',
+    title: 'WAQ — Mobile App',
+    company: 'Freelance',
+    period: '2024 — Present',
+    description:
+      'Built a full-stack mobile application with a Python/Flask REST API backed by PostgreSQL. Designed the database schema, improving query performance by 30%. Delivered a cross-platform front-end in React Native and automated CI/CD pipelines for deployment.',
+    tech: ['Python', 'Flask', 'SQLAlchemy', 'PostgreSQL', 'React Native', 'CI/CD'],
+  },
+  {
+    type: 'work',
+    title: 'Codemon — Online Multiplayer Game',
+    company: 'Freelance',
+    period: '2024 — Present',
+    description:
+      'Developed real-time multiplayer front-end components using React, Redux, and Node.js. Leveraged Next.js for performance and SEO. Optimized database schemas, reducing query response time by 40%, and implemented secure authentication mechanisms.',
+    tech: ['React', 'Redux', 'Node.js', 'Next.js', 'Socket.IO', 'PostgreSQL'],
+  },
+  {
+    type: 'work',
+    title: 'Petals of Time — Pomodoro App',
+    company: 'Freelance',
+    period: '2024 — Present',
+    description:
+      'Migrated a 15,000-line JavaScript codebase to TypeScript, reducing runtime errors and improving maintainability by 25%. Built a comprehensive testing framework that cut regression bugs by 40% and integrated CI/CD tooling to streamline deployments.',
+    tech: ['TypeScript', 'React', 'Node.js', 'Jest', 'CI/CD'],
+  },
+];
+
+const projects: ExperienceItem[] = [
+  {
+    type: 'project',
+    title: 'Splidot — Payment Manager',
+    period: '2023',
+    description:
+      'Expense-splitting application for groups of 10+ people. Streamlined transaction flows, increased user satisfaction by 40%, and implemented robust API integrations for secure data processing.',
+    tech: ['React', 'Express', 'Node.js', 'PostgreSQL'],
+  },
+  {
+    type: 'project',
+    title: 'Health in Tech — Data Analysis',
+    period: '2023',
+    description:
+      'Comprehensive data analysis pipeline using SQL for dataset extraction and Python for in-depth analysis. Automated visualization dashboards, reducing manual reporting time by 25%.',
+    tech: ['Python', 'Pandas', 'Seaborn', 'SQL', 'PostgreSQL'],
+  },
+  {
+    type: 'project',
+    title: 'Text & Face Extraction from Images',
+    period: '2023',
+    description:
+      'Computer vision pipeline combining OpenCV for face detection (95% accuracy) with Pytesseract for automated text extraction from scanned documents and images.',
+    tech: ['Python', 'OpenCV', 'Pytesseract'],
+  },
+];
+---
+
+<section class="experience" id="experience">
+  <div class="container">
+
+    <div class="section-head">
+      <p class="section-label">Professional Background</p>
+      <h2 class="section-title">Experience</h2>
+    </div>
+
+    <div class="timeline">
+      {experiences.map((item, i) => (
+        <article class="timeline-item" data-index={i}>
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          <div class="timeline-body">
+            <div class="item-meta">
+              <span class="item-period">{item.period}</span>
+              {item.company && <span class="item-company">{item.company}</span>}
+            </div>
+            <h3 class="item-title">{item.title}</h3>
+            <p class="item-desc">{item.description}</p>
+            <div class="item-tech">
+              {item.tech.map(t => (
+                <span class="tech-pill">{t}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="section-head section-head--projects" id="projects">
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Projects</h2>
+    </div>
+
+    <div class="projects-grid">
+      {projects.map((item) => (
+        <article class="project-card">
+          <div class="card-accent"></div>
+          <div class="project-inner">
+            <div class="project-meta">
+              <span class="item-period">{item.period}</span>
+              {item.link && (
+                <a href={item.link} target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View project">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
+              )}
+            </div>
+            <h3 class="item-title item-title--sm">{item.title}</h3>
+            <p class="item-desc">{item.description}</p>
+            <div class="item-tech">
+              {item.tech.map(t => (
+                <span class="tech-pill">{t}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .experience {
+    padding: 8rem 0;
+    position: relative;
+  }
+
+  .section-head {
+    margin-bottom: 4rem;
+  }
+
+  .section-head--projects {
+    margin-top: 7rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  .marker-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent-red);
+    background: var(--bg-primary);
+    flex-shrink: 0;
+    transition: background 0.2s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-item:hover .marker-dot {
+    background: var(--accent-red);
+  }
+
+  .marker-line {
+    width: 1px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 6px;
+  }
+
+  .timeline-item:last-child .marker-line {
+    display: none;
+  }
+
+  .timeline-body {
+    padding-bottom: 3.5rem;
+  }
+
+  .item-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .item-period {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .item-company {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--accent-red-bright);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .item-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+  }
+
+  .item-title--sm {
+    font-size: 1.1rem;
+  }
+
+  .item-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 600px;
+    margin-bottom: 1rem;
+  }
+
+  .item-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tech-pill {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .timeline-item:hover .tech-pill,
+  .project-card:hover .tech-pill {
+    border-color: var(--border-accent);
+    color: var(--text-secondary);
+  }
+
+  /* Projects grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .project-card {
+    background: var(--bg-primary);
+    position: relative;
+    transition: background 0.25s;
+    overflow: hidden;
+  }
+
+  .project-card:hover {
+    background: var(--bg-card);
+  }
+
+  .card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover .card-accent {
+    transform: scaleX(1);
+  }
+
+  .project-inner {
+    padding: 2rem;
+  }
+
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-link {
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .project-link:hover {
+    color: var(--accent-red-bright);
+  }
+
+  @media (max-width: 900px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+      grid-template-columns: 20px 1fr;
+      gap: 1.25rem;
+    }
+  }
+</style>

@@ -11,6 +11,7 @@ git clone <repo-url>
 cd portfolio-dev
 ```
 
+
 **2. Install dependencies**
 
 ```bash
